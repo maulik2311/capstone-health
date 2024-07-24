@@ -16,7 +16,7 @@
     become : yes
     become_user : root
     
-  - name : Install Git
+  - name : Install Maven
     command : sudo apt-get install maven -y
     become : yes
     become_user : root
