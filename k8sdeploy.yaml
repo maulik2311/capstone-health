@@ -34,6 +34,6 @@ spec:
     app: app
   type: NodePort
   ports:
-    - nodePort: 31231 
+    - nodePort: 31233 
       port: 80
       targetPort: 8082
