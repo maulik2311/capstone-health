@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-deployment
+  labels:
+    app: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec: 
+      containers:
+        - name: c001
+          image: maulikd2397/health
+          ports:
+            - containerPort: 8082
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: health-service
+  labels:
+    app: app
+spec:
+  selector:
+    app: app
+  type: NodePort
+  ports:
+    - nodePort: 31233 
+      port: 80
+      targetPort: 8082
